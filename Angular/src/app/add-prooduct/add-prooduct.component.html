@@ -1,0 +1,217 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+
+    <h3>ADD PRODUCT</h3>
+
+    <form #userForm="ngForm" (ngSubmit)='onSubmit(userForm.value)'>
+
+        <div class="form-group">
+
+            <label>PRODUCT ID: </label>
+
+            <input required minlength="1" type="number" #proIdRef='ngModel' name="id" ngModel class="form-control">
+
+            <div *ngIf='proIdRef.errors && proIdRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proIdRef.errors.required'> Provide Product Id </div>
+
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+
+            <label>PRODUCTNAME: </label>
+
+            <input required minlength="6" type="text" #proNameRef='ngModel' name="productName" ngModel class="form-control">
+
+            <div *ngIf='proNameRef.errors
+                        && proNameRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proNameRef.errors.required'>
+
+                    Provide Product Name
+
+                </div>
+
+                <div *ngIf='proNameRef.errors.pattern'>Name should be minimum of 6 characters length</div>
+
+            </div>
+
+        </div>
+
+        <div class="form-group">
+
+            <label>PRODUCT PRIZE: </label>
+
+            <input required minlength="1" length="1" type="number" #propriRef='ngModel' name="prize" ngModel
+                class="form-control">
+
+            <div *ngIf='propriRef.errors && propriRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!propriRef.errors.required'> Provide Product Prize </div>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <label> COLOR: </label>
+
+            <input required minlength="3" type="text" #colorref='ngModel' name="colour" ngModel class="form-control">
+
+            <div *ngIf='colorref.errors
+                        && colorref.touched' class="alert alert-danger">
+
+                <div [hidden]='!colorref.errors.required'>
+
+                    Color is required
+
+                </div>
+
+                <div *ngIf='colorref.errors.pattern'>Color should be min length of 3</div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>PRODUCT MANUFACTURE: </label>
+
+            <input required minlength="4" type="text" #proManufactureRef='ngModel' name="manufacture" ngModel
+                class="form-control">
+
+            <div *ngIf='proManufactureRef.errors
+                        && proManufactureRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proManufactureRef.errors.required'>
+
+                    Provide Product manufacture
+
+                </div>
+
+                <div *ngIf='proManufactureRef.errors.pattern'>Manufacture should be minimum of 3 characters length</div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>PRODUCT DIMENSIONS: </label>
+
+            <input required minlength="1" type="number" #proDimensionsRef='ngModel' name="dimensions" ngModel
+                class="form-control">
+
+            <div *ngIf='proDimensionsRef.errors
+                        && proDimensionsRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proDimensionsRef.errors.required'>
+
+                    Provide Product dimensions
+
+                </div>
+                <div *ngIf='proDimensionsRef.errors.pattern'>Dimensions should be minimum of 1 characters length</div>
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label>PRODUCT SPECIFICATIONS: </label>
+
+            <input required minlength="4" type="text" #proSpecificationsRef='ngModel' name="specifications" ngModel
+                class="form-control">
+
+            <div *ngIf='proSpecificationsRef.errors
+                                && proSpecificationsRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proSpecificationsRef.errors.required'>
+
+                    Provide Product specifications
+
+                </div>
+
+                <div *ngIf='proSpecificationsRef.errors.pattern'>Specifications should be minimum of 4 characters length
+                </div>
+
+            </div>
+
+        </div>
+        <div class="form-group">
+
+            <label>PRODUCT QUANTITY: </label>
+
+            <input required minlength="1" type="number" #proQuantityRef='ngModel' name="quantity" ngModel
+                class="form-control">
+
+            <div *ngIf='proQuantityRef.errors
+                        && proQuantityRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proQuantityRef.errors.required'>
+
+                    Provide Product quantity
+
+                </div>
+
+                <div *ngIf='proQuantityRef.errors.pattern'>Quantity should be provided</div>
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label>PRODUCT CATOGERY: </label>
+
+            <input required  type="text" #proCatogeryRef='ngModel' name="productCatogery" ngModel
+                class="form-control">
+
+            <div *ngIf='proCatogeryRef.errors
+                    && proCatogeryRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!proCatogeryRef.errors.required'>
+
+                    Provide Product catogery
+
+                </div>
+
+                <div *ngIf='proCatogeryRef.errors.pattern'>catogery should be provided</div>
+
+            </div>
+        </div>
+        <div class="form-group">
+
+            <label>RETAILER ID: </label>
+
+            <input required minlength="1" type="number" #retaileridRef='ngModel' name="retailerId" ngModel
+                class="form-control">
+
+            <div *ngIf='retaileridRef.errors
+                && retaileridRef.touched' class="alert alert-danger">
+
+                <div [hidden]='!retaileridRef.errors.required'>
+
+                    Provide Retailer id
+
+                </div>
+
+                <div *ngIf='retaileridRef.errors.pattern'>retailer id should be provided</div>
+
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <input [disabled]="userForm.invalid" type="submit" value="Add Product" class="btn btn-primary">
+
+    </form>
+
+</div>
+<div>
+    <h2>{{message}}</h2>
+</div>

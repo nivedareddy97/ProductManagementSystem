@@ -1,0 +1,52 @@
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<div class="container">
+    <input type="button" class="btn btn-success" value="Search" style="margin:5px;" (click)="router.navigate(['/search']);">
+     <input type="button" class="btn btn-success" value="Filter" style="margin:5px;"  (click)="router.navigate(['/filter']);">
+    <table class="table table-striped " *ngIf="products && products.length > 0  else elseBlock">
+        <thead>
+            <tr>
+                <th>PRODUCT ID</th>
+                <th>COLOR</th>
+                <th>PRICE</th>
+                <th>DIMENSIONS</th>
+                <th>SPECIFICATIONS</th>
+                <th>MANUFACTURE</th>
+                <th>QUANTITY</th>
+                <th>PRODUCT CATOGERY</th>
+                <th>PRODUCTNAME</th>
+                <th>RETAILERID</th>
+                <th>ACTION</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let p of products">
+                <td> {{p.id}} </td>
+                <td> {{p.colour}} </td>
+                <td>{{p.prize}}
+                <td> {{p.dimensions}} </td>
+                <td>{{p.specifications}}</td>
+                <td> {{p.manufacture}} </td>
+                <td>{{p.quantity}}</td>
+                <td>{{p.productCatogery}}</td>
+                <td>{{p.productName}}</td>
+                <td>{{p.retailerId}}</td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=delete(p)>Delete</button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-large btn-block btn-primary" (click)=update(p)>Edit</button>
+                </td>
+                <td>
+            </tr>
+        </tbody>
+    </table>
+    <ng-template #elseBlock>
+        <h4 align="center"> There are no product to display,please add the product! </h4>
+    </ng-template>
+
+</div>
+<h2>{{message}}</h2>
